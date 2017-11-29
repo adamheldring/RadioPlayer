@@ -26,7 +26,7 @@ The Sveriges Radio API seems to work without any sort of authentication, so that
 
 You will need to use the component lifecycle function `componentDidMount()` [docs](https://reactjs.org/docs/react-component.html#componentdidmount) to invoke a `fetch()` function on the url "http://api.sr.se/api/v2/channels?format=json&size=100". Use `.then()` to create a success callback function. Within that callback function, you can use `setState()` to inject the api response into your component.
 
-Refer to the lecture material from the morning, and also check back on your old weather dashboard project for a reminder!
+Refer to the lecture material from the morning, and also check back on your old weather dashboard project for a reminder on how to use `fetch()`!
 
 ### Audio
 
