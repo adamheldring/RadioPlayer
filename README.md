@@ -28,6 +28,10 @@ You will need to use the component lifecycle function `componentDidMount()` [doc
 
 Refer to the lecture material from the morning, and also check back on your old weather dashboard project for a reminder!
 
+### Audio
+
+Check out the [documentation](https://www.w3schools.com/tags/tag_audio.asp) for the `<audio>` tag. The format for the stream is mp3, so you'll need to use a `<source>` with the "type" of "audio/mpeg".
+
 ## GitHub
 
 To complete this assignment, you need to fork this repository, add your code in the "code" folder, and then submit a pull request on GitHub (from your repository into the Technigo one) for review. [Read the guide on GitHub](https://guides.github.com/activities/forking/) for more info on how to do this.
@@ -35,6 +39,7 @@ To complete this assignment, you need to fork this repository, add your code in 
 ### :books: Reading List
 
 * [SR API Docs](http://sverigesradio.se/api/documentation/v2/index.html)
+* [Audio HTML Tag](https://www.w3schools.com/tags/tag_audio.asp)
 * [MDN Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 * [MDN Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
