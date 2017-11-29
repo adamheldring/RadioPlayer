@@ -63,6 +63,10 @@ After completing this assignment you should be more comfortable using APIs, and 
 
 ### :runner: Stretch Goals
 
-Done with the main task? Here's some ideas for things to continue with:
+This task has one stretch goal, but it's a little tough, and you'll need to do some research to complete it.
 
-1. ?
+The stretch goal is to control the audio tags using JavaScript to make it so that only one audio player can play at once. So if you have an audio tag which is currently playing, and you click another, then all other audio must be paused before you play the new one.
+
+To do this, you will need to use [refs](https://reactjs.org/docs/refs-and-the-dom.html) to store references to your audio tags in React. You will need to use an `onPlay` prop on the `<audio>` element to trigger a callback function in React. In that callback function, you can iterate over all of the audio tags you have (using their refs which we stored), and call `.pause()` on them.
+
+Good luck!
