@@ -63,10 +63,20 @@ After completing this assignment you should be more comfortable using APIs, and 
 
 ### :runner: Stretch Goals
 
-This task has one stretch goal, but it's a little tough, and you'll need to do some research to complete it.
+This task has two stretch goals, but both are a little tough, and you'll need to do some research to complete them.
 
-The stretch goal is to control the audio tags using JavaScript to make it so that only one audio player can play at once. So if you have an audio tag which is currently playing, and you click another, then all other audio must be paused before you play the new one.
+#### Stretch goal 1
 
-To do this, you will need to use [refs](https://reactjs.org/docs/refs-and-the-dom.html) to store references to your audio tags in React. You will need to use an `onPlay` prop on the `<audio>` element to trigger a callback function in React. In that callback function, you can iterate over all of the audio tags you have (using their refs which we stored), and call `.pause()` on them.
+Implement a search function which calls `.filter()` on the station list to decide which channels to render. This stretch goal requires you to research how to control form inputs in React - something we will cover more properly later in the sprint.
 
-Good luck!
+You will need use the `onChange` attribute on an input to invoke a function which will use the input's value in the `.filter()` call to filter the stations.
+
+#### Stretch goal 2
+
+This stretch goal is to control the audio tags using JavaScript to make it so that only one audio player can play at once. So if you have an audio tag which is currently playing, and you click another, then all other audio must be paused before you play the new one.
+
+To do this, you will need to use a callback function your Station component to notify it's parent component when the user clicks play. You will need to use an `onPlay` prop on the `<audio>` element to trigger the callback function prop. You can then use the function in the parent, which was invoked by the child, to store which player is currently playing. When the user tries to start a new channel, the callback function will be invoked again, and, if there's a currently playing station, you can use the `.pause()` event on it to pause it.
+
+This one's a little tough since it requires multi-directional callbacks to work properly.
+
+Read about [lifting state up](https://reactjs.org/docs/lifting-state-up.html) or google [React callback to parent](https://www.google.se/search?q=react+callback+to+parent) for some ideas of how to implement child -> parent callbacks in React.
