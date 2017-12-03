@@ -67,4 +67,4 @@ This task has just one stretch goal, but it is a little tough, and you'll need t
 
 The task is to implement a search function which calls `.filter()` on the station list to decide which channels to render. This stretch goal requires you to research how to control form inputs in React - something we will cover more properly later in the sprint.
 
-You will need use the `onChange` attribute on an input to invoke a function which will use the input's value in the `.filter()` call to filter the stations.
+You will need use the `onChange` attribute on an input to invoke a function which will use the input's value in the `.filter()` call to filter the stations. If you want the search to be more flexible, look into using [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match) from the input value!
