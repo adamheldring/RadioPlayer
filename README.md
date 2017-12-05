@@ -63,7 +63,13 @@ After completing this assignment you should be more comfortable using APIs, and 
 
 ### :runner: Stretch Goals
 
-This task has just one stretch goal, but it is a little tough, and you'll need to do some research to complete it.
+#### First stretch goal
+
+Design for zero data. Make your page look nice while the station list is loading by creating a "skeleton loader", like we discussed during the lecture. Consider using the Chrome [network throttler](https://developers.google.com/web/tools/chrome-devtools/network-performance/network-conditions) to simulate a slow connection and make it easier to test your code.
+
+#### Second stretch goal
+
+This task has one more stretch goal, but it is a little tough, and you'll need to do some research to complete it. Take your time and think through how to manage state.
 
 The task is to implement a search function which calls `.filter()` on the station list to decide which channels to render. This stretch goal requires you to research how to control form inputs in React - something we will cover more properly later in the sprint.
 
