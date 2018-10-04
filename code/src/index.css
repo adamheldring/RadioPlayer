@@ -5,16 +5,20 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  /* background: pink; */
 }
 .master-wrapper {
   width: 900px;
   margin: 0 auto;
   background: lightgrey;
 }
-.nrStations-listed {
-  width: 100%;
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+.nrStations-listed {
+}
+
 .stations-container {
   display: flex;
   flex-flow: row wrap;
@@ -22,4 +26,8 @@ body {
 header h1 {
   text-align: center;
   padding: 40px 0;
+}
+.searchBar {
+  height: 30px;
+  width: 200px;
 }
