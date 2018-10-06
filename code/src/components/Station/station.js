@@ -20,6 +20,9 @@ class Station extends React.Component {
           <h3>{this.props.name}</h3>
           <Audioplayer audiofeed={this.props.audiofeed} />
         </div>
+        <div className="station-description-container">
+          <p>{this.props.tagline}</p>
+        </div>
 
       </div>
     )

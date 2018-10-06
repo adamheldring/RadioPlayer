@@ -5,7 +5,8 @@ class App extends React.Component {
 state = {
   radioList: [],
   filteredRadioList: [],
-  userSearchString: ""
+  userSearchString: "",
+  retrolook: false
 }
 
 
@@ -28,10 +29,16 @@ componentWillUnmount = () => {
 }
 
 filterList = () => {
-  this.setState({
-    filteredRadioList: this.state.radioList.filter(channel => {
-      return channel.channeltype.indexOf(this.state.userSearchString) != -1})
+  if (this.state.userSearchString) {
+      console.log('something')
+
+    this.setState({
+      filteredRadioList: this.state.radioList.filter(channel => {
+        return channel.channeltype.indexOf(this.state.userSearchString) !== -1})
     })
+  } else {
+    console.log('nothing')
+  }
 }
 
 
@@ -42,18 +49,28 @@ userSearch = (e) => {
   this.filterList()
 }
 
+toggleBW = () => {
+  this.setState({
+    retrolook: !this.state.retrolook
+  })
+}
+
 render() {
 
   if (this.state.radioList.length > 0) {
     return (
-      <div className="master-wrapper">
+      <div className={this.state.retrolook ? "master-wrapper retrolook" : "master-wrapper"}>
 
         <header>
-          <h1>RADIO</h1>
+          <div className="logo-container">
+            <img src="./images/oldradio.png" alt="Radio" onClick={this.toggleBW}/>
+            <a href="https://sverigesradio.se/"><img src="./images/srlogo.png" alt="Sveriges Radio"/></a>
+            <a href="https://sv.wikipedia.org/wiki/Radiohead"><img src="./images/radiohead-logo.png" alt="Radiohead" className="radiohead-logo"/></a>
+          </div>
         </header>
 
         <section className="search-container">
-          <h3 className="nrStations-listed">Antal listade kanaler: {this.state.radioList.length}</h3>
+          <h4 className="nrStations-listed">Antal listade kanaler: {this.state.radioList.length}</h4>
           <div className="searchContainer">
             <input type="text" className="searchBar" name="radioSearch" placeholder="Sök efter nyckelord" onChange={this.userSearch}/>
           </div>
