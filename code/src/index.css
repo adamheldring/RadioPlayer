@@ -37,17 +37,10 @@ body {
 .search-container h4 {
   font-weight: 400;
 }
-.nrStations-listed {
-}
-
 .stations-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-}
-header h1 {
-  text-align: center;
-  padding: 40px 0;
 }
 .searchBar {
   height: 30px;
@@ -70,9 +63,6 @@ header h1 {
   .logo-container img{
     height: auto;
     width: 100%;
-  }
-  .logo-container a {
-    text-align: center;
   }
   .radiohead-logo {
     display: none;

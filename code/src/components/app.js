@@ -16,7 +16,6 @@ componentDidMount = () => {
       return response.json()
     })
     .then(result => {
-      console.log(result.channels)
       this.setState({
         radioList: result.channels,
         filteredRadioList: result.channels
@@ -34,7 +33,8 @@ userSearch = (e) => {
             channel.tagline = ""
         }
         return channel.tagline.toLowerCase().includes(e.target.value.toLowerCase()) ||
-        channel.name.toLowerCase().includes(e.target.value.toLowerCase())})
+        channel.name.toLowerCase().includes(e.target.value.toLowerCase())
+      })
     })
   } else {
     this.setState({
