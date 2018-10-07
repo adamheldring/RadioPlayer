@@ -46,6 +46,7 @@ userSearch = (e) => {
   }
 }
 
+// Gives entire page a retro look when clicking the old radio image
 toggleBW = () => {
   this.setState({
     retrolook: !this.state.retrolook
@@ -61,7 +62,7 @@ render() {
         <header>
           <div className="logo-container">
             <img src="./images/oldradio.png" alt="Radio" onClick={this.toggleBW}/>
-            <a href="https://sverigesradio.se/"><img src="./images/srlogo.png" alt="Sveriges Radio"/></a>
+            <a href="https://sverigesradio.se/" target="_blank"><img src="./images/srlogo.png" alt="Sveriges Radio"/></a>
             <a href="https://sv.wikipedia.org/wiki/Radiohead"><img src="./images/radiohead-logo.png" alt="Radiohead" className="radiohead-logo"/></a>
           </div>
         </header>
@@ -69,7 +70,7 @@ render() {
         <section className="search-container">
           <h4 className="nrStations-listed">Antal listade kanaler: {this.state.filteredRadioList.length}</h4>
           <div className="searchContainer">
-            <input type="text" className="searchBar" name="radioSearch" placeholder="Sök efter nyckelord" onChange={this.userSearch}/>
+            <input autofocus="autofocus" type="text" className="searchBar" name="radioSearch" placeholder="Sök efter nyckelord" onChange={this.userSearch}/>
           </div>
         </section>
 
