@@ -27,3 +27,9 @@
   color: #FFF;
   padding: 10px 17px;
 }
+
+@media (max-width: 900px) {
+  .station-wrapper {
+    width: 100%;
+  }
+}

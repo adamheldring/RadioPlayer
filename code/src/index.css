@@ -56,3 +56,31 @@ header h1 {
 .radiohead-logo {
   padding-left: 64px;
 }
+
+
+/* TABLET & MOBILE */
+
+@media (max-width: 900px) {
+  .master-wrapper {
+    width: 500px;
+    margin: 0 auto;
+    background-image: none;
+    padding: 2%;
+  }
+  .logo-container img{
+    height: auto;
+    width: 100%;
+  }
+  .logo-container a {
+    text-align: center;
+  }
+  .radiohead-logo {
+    display: none;
+  }
+  .oldradio {
+    display: none;
+  }
+  .retrolook {
+    filter: none;
+  }
+}

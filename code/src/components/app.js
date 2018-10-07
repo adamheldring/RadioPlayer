@@ -5,9 +5,9 @@ class App extends React.Component {
 state = {
   radioList: [],
   filteredRadioList: [],
-  retrolook: false
+  retrolook: false,
+  nrOfPlaceholderItems: 4
 }
-
 
 componentDidMount = () => {
   const url = "http://api.sr.se/api/v2/channels?format=json&size=100"
@@ -22,9 +22,6 @@ componentDidMount = () => {
         filteredRadioList: result.channels
       })
     })
-}
-
-componentWillUnmount = () => {
 }
 
 // Case insensitive match of user search string towards channel tagline and title
@@ -53,6 +50,14 @@ toggleBW = () => {
   })
 }
 
+createLoadingPage = (nrOfPlaceholderItems) => {
+  let placeholderItems = []
+  for (let i = 0; i < nrOfPlaceholderItems; i++) {
+    placeholderItems.push(<Station image="./images/placeholder.jpg" name="Laddar kanal..." key={i}/>)
+  }
+  return placeholderItems
+}
+
 render() {
 
   if (this.state.radioList.length > 0) {
@@ -61,8 +66,8 @@ render() {
 
         <header>
           <div className="logo-container">
-            <img src="./images/oldradio.png" alt="Radio" onClick={this.toggleBW}/>
-            <a href="https://sverigesradio.se/" target="_blank"><img src="./images/srlogo.png" alt="Sveriges Radio"/></a>
+            <img src="./images/oldradio.png" alt="Radio" onClick={this.toggleBW} className="oldradio"/>
+            <a href="https://sverigesradio.se/"><img src="./images/srlogo.png" alt="Sveriges Radio"/></a>
             <a href="https://sv.wikipedia.org/wiki/Radiohead"><img src="./images/radiohead-logo.png" alt="Radiohead" className="radiohead-logo"/></a>
           </div>
         </header>
@@ -70,10 +75,9 @@ render() {
         <section className="search-container">
           <h4 className="nrStations-listed">Antal listade kanaler: {this.state.filteredRadioList.length}</h4>
           <div className="searchContainer">
-            <input autofocus="autofocus" type="text" className="searchBar" name="radioSearch" placeholder="Sök efter nyckelord" onChange={this.userSearch}/>
+            <input autoFocus="autofocus" type="text" className="searchBar" name="radioSearch" placeholder="Sök efter nyckelord" onChange={this.userSearch}/>
           </div>
         </section>
-
         <section className="stations-container">
           {this.state.filteredRadioList.map((channel, index) => {
             return <Station
@@ -89,17 +93,21 @@ render() {
             />
           })}
         </section>
-
-
       </div>
     )
   } else {
-    return (
-      <div className="master-wrapper">
-        <h1>Loading...</h1>
-        <Station />
-      </div>
-    )
+      return (
+        <div className="master-wrapper">
+          <header>
+            <div className="logo-container">
+              <a href="https://sverigesradio.se/"><img src="./images/srlogo.png" alt="Sveriges Radio"/></a>
+            </div>
+          </header>
+          <section className="stations-container">
+            {this.createLoadingPage(this.state.nrOfPlaceholderItems)}
+          </section>
+        </div>
+      )
   }
 }
 
