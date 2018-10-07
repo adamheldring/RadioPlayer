@@ -9,6 +9,7 @@
 }
 .station-image-container {
   height: 150px;
+  padding: 5px;
   width: auto;
 }
 .station-image {

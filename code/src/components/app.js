@@ -5,7 +5,6 @@ class App extends React.Component {
 state = {
   radioList: [],
   filteredRadioList: [],
-  userSearchString: "",
   retrolook: false
 }
 
@@ -28,25 +27,23 @@ componentDidMount = () => {
 componentWillUnmount = () => {
 }
 
-filterList = () => {
-  if (this.state.userSearchString) {
-      console.log('something')
-
+// Case insensitive match of user search string towards channel tagline and title
+// Also matches an empty serch field with all channels
+userSearch = (e) => {
+  if (e.target.value) {
     this.setState({
       filteredRadioList: this.state.radioList.filter(channel => {
-        return channel.channeltype.indexOf(this.state.userSearchString) !== -1})
+        if (!channel.tagline) {
+            channel.tagline = ""
+        }
+        return channel.tagline.toLowerCase().includes(e.target.value.toLowerCase()) ||
+        channel.name.toLowerCase().includes(e.target.value.toLowerCase())})
     })
   } else {
-    console.log('nothing')
+    this.setState({
+      filteredRadioList: this.state.radioList
+    })
   }
-}
-
-
-userSearch = (e) => {
-  this.setState({
-    userSearchString: e.target.value
-  })
-  this.filterList()
 }
 
 toggleBW = () => {
@@ -70,15 +67,13 @@ render() {
         </header>
 
         <section className="search-container">
-          <h4 className="nrStations-listed">Antal listade kanaler: {this.state.radioList.length}</h4>
+          <h4 className="nrStations-listed">Antal listade kanaler: {this.state.filteredRadioList.length}</h4>
           <div className="searchContainer">
             <input type="text" className="searchBar" name="radioSearch" placeholder="Sök efter nyckelord" onChange={this.userSearch}/>
           </div>
         </section>
 
         <section className="stations-container">
-          {console.log(this.state.userSearchString)}
-          {console.log(this.state.filteredRadioList)}
           {this.state.filteredRadioList.map((channel, index) => {
             return <Station
               key={index}
