@@ -10,7 +10,7 @@ state = {
 }
 
 componentDidMount = () => {
-  const url = "http://api.sr.se/api/v2/channels?format=json&size=100"
+  const url = "https://api.sr.se/api/v2/channels?format=json&size=100"
   fetch(url)
     .then(response => {
       return response.json()
@@ -26,21 +26,22 @@ componentDidMount = () => {
 // Case insensitive match of user search string towards channel tagline and title
 // Also matches an empty serch field with all channels
 userSearch = (e) => {
+  let filterBySearch = []
   if (e.target.value) {
-    this.setState({
-      filteredRadioList: this.state.radioList.filter(channel => {
-        if (!channel.tagline) {
-            channel.tagline = ""
-        }
+    filterBySearch = this.state.radioList.filter(channel => {
+      if (!channel.tagline) {
+          channel.tagline = ""
+      }
         return channel.tagline.toLowerCase().includes(e.target.value.toLowerCase()) ||
         channel.name.toLowerCase().includes(e.target.value.toLowerCase())
-      })
-    })
+      }
+    )
   } else {
-    this.setState({
-      filteredRadioList: this.state.radioList
-    })
+      filterBySearch = this.state.radioList
   }
+  this.setState({
+    filteredRadioList: filterBySearch
+  })
 }
 
 // Gives entire page a retro look when clicking the old radio image
@@ -67,15 +68,25 @@ render() {
         <header>
           <div className="logo-container">
             <img src="./images/oldradio.png" alt="Radio" onClick={this.toggleBW} className="oldradio"/>
-            <a href="https://sverigesradio.se/"><img src="./images/srlogo.png" alt="Sveriges Radio"/></a>
-            <a href="https://sv.wikipedia.org/wiki/Radiohead"><img src="./images/radiohead-logo.png" alt="Radiohead" className="radiohead-logo"/></a>
+            <a href="https://sverigesradio.se/">
+              <img src="./images/srlogo.png" alt="Sveriges Radio" target="_blank" />
+            </a>
+            <a href="https://sv.wikipedia.org/wiki/Radiohead">
+              <img src="./images/radiohead-logo.png" alt="Radiohead" className="radiohead-logo" target="_blank" />
+            </a>
           </div>
         </header>
 
         <section className="search-container">
           <h4 className="nrStations-listed">Antal listade kanaler: {this.state.filteredRadioList.length}</h4>
           <div className="searchContainer">
-            <input autoFocus="autofocus" type="text" className="searchBar" name="radioSearch" placeholder="Sök efter nyckelord" onChange={this.userSearch}/>
+            <input
+              autoFocus="autofocus"
+              type="text"
+              className="searchBar"
+              name="radioSearch"
+              placeholder="Sök efter nyckelord"
+              onChange={this.userSearch}/>
           </div>
         </section>
         <section className="stations-container">
@@ -100,7 +111,9 @@ render() {
         <div className="master-wrapper">
           <header>
             <div className="logo-container">
-              <a href="https://sverigesradio.se/"><img src="./images/srlogo.png" alt="Sveriges Radio"/></a>
+              <a href="https://sverigesradio.se/">
+                <img src="./images/srlogo.png" alt="Sveriges Radio"/>
+              </a>
             </div>
           </header>
           <section className="stations-container">
