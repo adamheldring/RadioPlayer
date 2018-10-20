@@ -68,11 +68,11 @@ render() {
         <header>
           <div className="logo-container">
             <img src="./images/oldradio.png" alt="Radio" onClick={this.toggleBW} className="oldradio"/>
-            <a href="https://sverigesradio.se/">
-              <img src="./images/srlogo.png" alt="Sveriges Radio" target="_blank" />
+            <a href="https://sverigesradio.se/" target="_blank">
+              <img src="./images/srlogo.png" alt="Sveriges Radio" />
             </a>
-            <a href="https://sv.wikipedia.org/wiki/Radiohead">
-              <img src="./images/radiohead-logo.png" alt="Radiohead" className="radiohead-logo" target="_blank" />
+            <a href="https://sv.wikipedia.org/wiki/Radiohead" target="_blank">
+              <img src="./images/radiohead-logo.png" alt="Radiohead" className="radiohead-logo" />
             </a>
           </div>
         </header>
