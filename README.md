@@ -4,4 +4,4 @@ Responsive Radio Player built in React and JavaScript ES6. Bringing in streaming
 
 ## Original sketch
 
-![Wireframe](https://github.com/Technigo/assignment-radio-player/blob/master/wireframe.png)
+![Wireframe](https://github.com/adamheldring/RadioPlayer/blob/master/wireframe.png)
