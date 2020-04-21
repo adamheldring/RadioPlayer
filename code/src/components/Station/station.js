@@ -12,18 +12,16 @@ class Station extends React.Component {
 
     return (
       <div className="station-wrapper" style={channelColor.backgroundColor}>
-
         <div className="station-image-container">
           <img src={this.props.image} className="station-image" alt="station"/>
         </div>
         <div className="station-content-container">
           <h3>{this.props.name}</h3>
-          <Audioplayer audiofeed={this.props.audiofeed} />
+          <Audioplayer audiofeed={this.props.audiofeed} id={this.props.id} key={this.props.id}/>
         </div>
         <div className="station-description-container">
           <p>{this.props.tagline}</p>
         </div>
-
       </div>
     )
   }

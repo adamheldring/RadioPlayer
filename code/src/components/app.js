@@ -68,10 +68,10 @@ render() {
         <header>
           <div className="logo-container">
             <img src="./images/oldradio.png" alt="Radio" onClick={this.toggleBW} className="oldradio"/>
-            <a href="https://sverigesradio.se/" target="_blank">
+            <a href="https://sverigesradio.se/" target="_blank" rel="noopener noreferrer">
               <img src="./images/srlogo.png" alt="Sveriges Radio" />
             </a>
-            <a href="https://sv.wikipedia.org/wiki/Radiohead" target="_blank">
+            <a href="https://sv.wikipedia.org/wiki/Radiohead" target="_blank" rel="noopener noreferrer">
               <img src="./images/radiohead-logo.png" alt="Radiohead" className="radiohead-logo" />
             </a>
           </div>
@@ -90,9 +90,9 @@ render() {
           </div>
         </section>
         <section className="stations-container">
-          {this.state.filteredRadioList.map((channel, index) => {
+          {this.state.filteredRadioList.map(channel => {
             return <Station
-              key={index}
+              key={channel.id}
               id={channel.id}
               name={channel.name}
               channeltype={channel.channeltype}
